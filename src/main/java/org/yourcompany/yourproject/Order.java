@@ -27,4 +27,10 @@ public final class Order {
     public Money totalWithTax(int percent) {
         return this.subtotal().add(this.taxAtPercent(percent));
     }
+
+    public void pay(PaymentStrategy strategy) {
+        if (strategy == null) throw new
+        IllegalArgumentException("strategy required");
+        strategy.pay(this);
+    }
 }

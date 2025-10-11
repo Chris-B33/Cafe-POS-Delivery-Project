@@ -1,0 +1,6 @@
+org\yourcompany\yourproject\SimpleProductTest.class
+org\yourcompany\yourproject\MoneyTest.class
+org\yourcompany\yourproject\OrderTest.class
+org\yourcompany\yourproject\PaymentStrategyTest.class
+org\yourcompany\yourproject\InMemoryCatalogTest.class
+org\yourcompany\yourproject\LineItemTest.class
