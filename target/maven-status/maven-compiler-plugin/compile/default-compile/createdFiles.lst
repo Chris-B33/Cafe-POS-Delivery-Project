@@ -1,0 +1,9 @@
+org\yourcompany\yourproject\Catalog.class
+org\yourcompany\yourproject\LineItem.class
+org\yourcompany\yourproject\OrderIds.class
+org\yourcompany\yourproject\Order.class
+org\yourcompany\yourproject\Money.class
+org\yourcompany\yourproject\Week2Demo.class
+org\yourcompany\yourproject\SimpleProduct.class
+org\yourcompany\yourproject\InMemoryCatalog.class
+org\yourcompany\yourproject\Product.class
