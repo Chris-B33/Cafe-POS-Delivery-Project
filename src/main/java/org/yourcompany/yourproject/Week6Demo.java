@@ -2,10 +2,10 @@ package org.yourcompany.yourproject;
 
 import java.util.Scanner;
 
-public final class Week5Demo {
+public final class Week6Demo {
     public static void main(String[] args) {
-        CLI();
-        //example();
+        //CLI();
+        example();
     }
 
     public static void CLI() {
@@ -83,23 +83,17 @@ public final class Week5Demo {
     }
 
     public static void example() {
-        ProductFactory factory = new ProductFactory();
-        Product p1 = factory.create("ESP+SHOT+OAT"); // Espresso + Extra Shot + Oat
-        Product p2 = factory.create("LAT+L"); // Large Latte
+        // Old behavior
+        String oldReceipt = OrderManagerGod.process("LAT+L", 2, "CARD", "LOYAL5", false);
 
-        Order order = new Order(OrderIds.next());
-        order.addItem(new LineItem(p1, 1));
-        order.addItem(new LineItem(p2, 2));
-
-        System.out.println("Order #" + order.id());
-        for (LineItem li : order.items()) {
-            System.out.println(" - " + li.product().name() + " x"
-            + li.quantity() + " = " + li.lineTotal());
-        }
-
-        System.out.println("Subtotal: " + order.subtotal());
-        System.out.println("Tax (10%): " +
-        order.taxAtPercent(10));
-        System.out.println("Total: " + order.totalWithTax(10));
+        // New behavior with equivalent result
+        var pricing = new PricingService(new LoyaltyPercentDiscount(5), new FixedRateTaxPolicy(10));
+        var printer = new ReceiptPrinter();
+        var checkout = new CheckoutService(new ProductFactory(), pricing, printer, 10);
+        
+        String newReceipt = checkout.checkout("LAT+L", 2);
+        System.out.println("Old Receipt:\n" + oldReceipt);
+        System.out.println("\nNew Receipt:\n" + newReceipt);
+        System.out.println("\nMatch: " + oldReceipt.equals(newReceipt));
     }
 }
