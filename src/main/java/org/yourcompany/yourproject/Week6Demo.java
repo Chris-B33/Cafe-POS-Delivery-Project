@@ -3,19 +3,26 @@ package org.yourcompany.yourproject;
 import java.util.Scanner;
 
 public final class Week6Demo {
+    final private static Scanner scanner = new Scanner(System.in);
+
     public static void main(String[] args) {
-        //CLI();
-        example();
+        CLI();
+        //example();
     }
 
     public static void CLI() {
-        Scanner scanner = new Scanner(System.in);
-        ProductFactory factory = new ProductFactory();
-        Order order = new Order(OrderIds.next());
-        boolean addingItems = true;
+        int taxPercent = 10;
+        DiscountPolicy loyaltyDiscount = new LoyaltyPercentDiscount(5);
+        TaxPolicy taxPolicy = new FixedRateTaxPolicy(taxPercent);
+        PricingService pricing = new PricingService(loyaltyDiscount, taxPolicy);
+        ReceiptPrinter printer = new ReceiptPrinter();
+        CheckoutService checkout = new CheckoutService(new ProductFactory(), pricing, printer, taxPercent);
 
+        String fullReceipt = "";
+        Order order = new Order(OrderIds.next());
+
+        boolean addingItems = true;
         while (addingItems) {
-            // Base product selection
             System.out.println("\nSelect a base product:");
             System.out.println("1. Espresso ($2.50)");
             System.out.println("2. Latte ($3.20)");
@@ -24,62 +31,71 @@ public final class Week6Demo {
             int baseChoice = scanner.nextInt();
             scanner.nextLine();
 
-            String baseCode;
+            String recipe;
             switch (baseChoice) {
-                case 1 -> baseCode = "ESP";
-                case 2 -> baseCode = "LAT";
-                case 3 -> baseCode = "CAP";
+                case 1 -> recipe = "ESP";
+                case 2 -> recipe = "LAT";
+                case 3 -> recipe = "CAP";
                 default -> {
                     System.out.println("Invalid choice. Try again.");
                     continue;
                 }
             }
 
-            // Extra options with prices
             String[][] extras = {
-                {"Extra Shot", "SHOT", "0.80"},
-                {"Oat Milk", "OAT", "0.50"},
-                {"Syrup", "SYP", "0.40"},
-                {"Make it Large", "L", "0.70"}
+                {"Extra Shot", "SHOT"},
+                {"Oat Milk", "OAT"},
+                {"Syrup", "SYP"},
+                {"Make it Large", "L"}
             };
-
             for (String[] extra : extras) {
-                System.out.printf("Add %s? ($%s) (y/n): ", extra[0], extra[2]);
+                System.out.printf("Add %s? (y/n): ", extra[0]);
                 String choice = scanner.nextLine().trim().toLowerCase();
-                if (choice.equals("y")) baseCode += "+" + extra[1];
+                if (choice.equals("y")) recipe += "+" + extra[1];
             }
 
-            // Create product via factory
-            Product product;
-            try {
-                product = factory.create(baseCode);
-            } catch (IllegalArgumentException e) {
-                System.out.println("Error: " + e.getMessage());
-                continue;
-            }
-
-            // Quantity
             System.out.print("Quantity: ");
             int qty = scanner.nextInt();
             scanner.nextLine();
+            if (qty <= 0) qty = 1;
 
+            Product product = new ProductFactory().create(recipe);
             order.addItem(new LineItem(product, qty));
+            fullReceipt += checkout.checkout(recipe, qty);
 
-            System.out.println("Add another item? (y/n)");
-            String more = scanner.nextLine().trim().toLowerCase();
-            addingItems = more.equals("y");
+            System.out.print("Add another product? (y/n): ");
+            addingItems = scanner.nextLine().trim().equalsIgnoreCase("y");
         }
 
-        // Print order summary
-        System.out.println("\nOrder #" + order.id());
-        for (LineItem li : order.items()) {
-            System.out.println(" - " + li.product().name() + " x" + li.quantity() +
-                    " = " + li.lineTotal());
+        System.out.print("Payment type (CASH, CARD, WALLET): ");
+        String paymentType = scanner.nextLine().trim().toUpperCase();
+
+        PaymentStrategy paymentStrategy;
+        switch (paymentType) {
+            case "CASH" -> paymentStrategy = new CashPayment();
+            case "CARD" -> {
+                System.out.print("Enter card number: ");
+                String cardNumber = scanner.nextLine().trim();
+                paymentStrategy = new CardPayment(cardNumber);
+            }
+            case "WALLET" -> {
+                System.out.print("Enter wallet ID: ");
+                String walletId = scanner.nextLine().trim();
+                paymentStrategy = new WalletPayment(walletId);
+            }
+            default -> {
+                System.out.println("Unknown payment type. Defaulting to cash.");
+                paymentStrategy = new CashPayment();
+            }
         }
 
-        System.out.println("Subtotal: " + order.subtotal());
-        System.out.println("Tax (10%): " + order.taxAtPercent(10));
-        System.out.println("Total: " + order.totalWithTax(10));
+        paymentStrategy.pay(order, taxPercent);
+
+        System.out.print("Do you want a receipt? (y/n): ");
+        boolean printReceipt =  scanner.nextLine().trim().equalsIgnoreCase("y");
+        if (printReceipt) { 
+            System.out.printf("Complete Receipt: %s\n\n", fullReceipt);
+        }
     }
 
     public static void example() {
@@ -90,7 +106,7 @@ public final class Week6Demo {
         var pricing = new PricingService(new LoyaltyPercentDiscount(5), new FixedRateTaxPolicy(10));
         var printer = new ReceiptPrinter();
         var checkout = new CheckoutService(new ProductFactory(), pricing, printer, 10);
-        
+
         String newReceipt = checkout.checkout("LAT+L", 2);
         System.out.println("Old Receipt:\n" + oldReceipt);
         System.out.println("\nNew Receipt:\n" + newReceipt);
