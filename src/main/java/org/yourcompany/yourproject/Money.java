@@ -32,6 +32,14 @@ public final class Money implements Comparable<Money> {
         return new Money(result);
     }
 
+    public Money subtract(Money other) {
+        if (other == null) throw new IllegalArgumentException("other required");
+        BigDecimal result = this.amount.subtract(other.amount);
+        if (result.compareTo(BigDecimal.ZERO) < 0)
+            throw new IllegalArgumentException("negative balance would occur");
+        return new Money(result);
+    }
+
     public Money multiply(int qty) {
         BigDecimal result = this.amount.multiply(BigDecimal.valueOf(qty));
         if (result.compareTo(BigDecimal.ZERO) < 0)
