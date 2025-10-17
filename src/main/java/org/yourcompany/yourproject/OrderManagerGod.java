@@ -41,8 +41,8 @@ public class OrderManagerGod {
         if (discounted.value().signum() < 0) {
             discounted = Money.zero(); 
         }
-        var tax = discounted.value().multiply(java.math.BigDecimal.valueOf(TAX_PERCENT)).divide(java.math.BigDecimal.valueOf(100));
-        var total = discounted.add(new Money(tax));
+        var tax = discounted.multiply(TAX_PERCENT).divide(100);
+        var total = discounted.add(tax);
 
         // Whole if statement should be handled by PaymentStrategy and is aleady with the pay method.
         // However, there is no mention of imputting card number, wallet id or anything in process arguments.
