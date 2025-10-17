@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.yourcompany.yourproject.OrderTest" time="0.011" tests="4" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="org.yourcompany.yourproject.OrderManagerGodTest" time="0.016" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="24"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -58,8 +58,30 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="68.0"/>
   </properties>
-  <testcase name="testAddItem" classname="org.yourcompany.yourproject.OrderTest" time="0.002"/>
-  <testcase name="testTotalWithTax" classname="org.yourcompany.yourproject.OrderTest" time="0.003"/>
-  <testcase name="testSubtotalCalculation" classname="org.yourcompany.yourproject.OrderTest" time="0.002"/>
-  <testcase name="testTaxCalculation" classname="org.yourcompany.yourproject.OrderTest" time="0.002"/>
+  <testcase name="loyalty_discount_card_payment" classname="org.yourcompany.yourproject.OrderManagerGodTest" time="0.009">
+    <system-out><![CDATA[[Card] Customer paid 8.15EUR with card ****1234
+Order (LAT+L) x2
+Subtotal: 7.80
+Discount: -0.39
+Tax (10%): 0.741
+Total: 8.15
+]]></system-out>
+  </testcase>
+  <testcase name="no_discount_cash_payment" classname="org.yourcompany.yourproject.OrderManagerGodTest" time="0.003">
+    <system-out><![CDATA[[Cash] Customer paid 4.18EUR
+Order (ESP+SHOT+OAT) x1
+Subtotal: 3.80
+Tax (10%): 0.38
+Total: 4.18
+]]></system-out>
+  </testcase>
+  <testcase name="coupon_fixed_amount_and_qty_clamp" classname="org.yourcompany.yourproject.OrderManagerGodTest" time="0.002">
+    <system-out><![CDATA[[Wallet] Customer paid 2.53EUR via wallet user-wallet-789
+Order (ESP+SHOT) x1
+Subtotal: 3.30
+Discount: -1.00
+Tax (10%): 0.23
+Total: 2.53
+]]></system-out>
+  </testcase>
 </testsuite>

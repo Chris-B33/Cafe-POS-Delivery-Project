@@ -4,6 +4,7 @@ org\yourcompany\yourproject\ProductDecorator.class
 org\yourcompany\yourproject\WalletPayment.class
 org\yourcompany\yourproject\ProductFactory.class
 org\yourcompany\yourproject\Priced.class
+org\yourcompany\yourproject\OrderManagerGod.class
 org\yourcompany\yourproject\CardPayment.class
 org\yourcompany\yourproject\Product.class
 org\yourcompany\yourproject\SizeLarge.class

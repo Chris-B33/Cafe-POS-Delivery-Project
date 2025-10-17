@@ -15,7 +15,7 @@ public final class Money implements Comparable<Money> {
         return new Money(BigDecimal.ZERO);
     }
 
-    private Money(BigDecimal a) {
+    public Money(BigDecimal a) {
         if (a == null) throw new IllegalArgumentException("amount required");
         this.amount = a.setScale(2, RoundingMode.HALF_UP);
     }
@@ -67,6 +67,6 @@ public final class Money implements Comparable<Money> {
 
     @Override
     public String toString() {
-        return amount.toString();
+        return String.format("%.2f", amount);
     }
 }
