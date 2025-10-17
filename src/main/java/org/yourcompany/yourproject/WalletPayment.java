@@ -5,7 +5,7 @@ public final class WalletPayment implements PaymentStrategy {
     public WalletPayment(String walletId) { this.walletId = walletId; }
 
     @Override
-    public void pay(Order order) {
-        System.out.println("[Card] Customer paid " + order.totalWithTax(10) + " EUR via wallet " + this.walletId);
+    public void pay(Order order, int tax) {
+        System.out.println("[Card] Customer paid " + order.totalWithTax(tax) + " EUR via wallet " + this.walletId);
     }
 }

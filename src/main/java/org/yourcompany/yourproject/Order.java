@@ -31,9 +31,9 @@ public final class Order {
         notifyObservers("itemAdded");
     }
     
-    public void pay(PaymentStrategy strategy) {
+    public void pay(PaymentStrategy strategy, int tax) {
         if (strategy == null) throw new IllegalArgumentException("strategy required");
-        strategy.pay(this);
+        strategy.pay(this, tax);
         notifyObservers("paid");
     }
     
