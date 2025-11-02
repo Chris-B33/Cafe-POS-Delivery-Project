@@ -21,7 +21,7 @@
 - Each class we abstracted the OrderManagerGod to create are examples of Single Responsibility. They all handle one thing and one thing only.
 - We implement base classes such as PaymentStrategy that are extensible shown through various strategies like wallet and card. This is an example of Open-Closed.
 - Using inheritance means the base classes and the derived classes share the same methods. Such as Product and SimpleProduct. This is Liskov Substitution.
-- Each payment type implements only the pay() method, which is all the CLI requires. CLI does not need to know about credit limits, card expiry, or wallet balance checking inside each strategy—those are internal to each class.
+- Each payment type implements only the pay() method, which is all the CLI requires. CLI does not need to know about total cost or anything else.
 - PricingService depends on abstractions (DiscountPolicy and TaxPolicy), not concrete implementations. You can swap LoyaltyPercentDiscount or FixedRateTaxPolicy with other implementations without changing PricingService. This is is Dependency Inversion in practice.
 
 ### 4: Implemeting a new Discount
