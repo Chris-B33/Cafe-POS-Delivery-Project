@@ -11,6 +11,12 @@ C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of S
 C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\checkout\PricingService.java
 C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\checkout\ReceiptPrinter.java
 C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\checkout\TaxPolicy.java
+C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\command\AddItemCommand.java
+C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\command\Command.java
+C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\command\MacroCommand.java
+C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\command\OrderService.java
+C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\command\PayOrderCommand.java
+C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\command\PosRemote.java
 C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\common\Money.java
 C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\decorator\ExtraShot.java
 C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\decorator\OatMilk.java
@@ -18,6 +24,9 @@ C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of S
 C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\decorator\ProductDecorator.java
 C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\decorator\SizeLarge.java
 C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\decorator\Syrup.java
+C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\demo\Week8Demo.java
+C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\demo\Week8Demo_Adapter.java
+C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\demo\Week8Demo_Commands.java
 C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\factory\ProductFactory.java
 C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\order\CustomerNotifier.java
 C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\order\DeliveryDesk.java
@@ -31,5 +40,7 @@ C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of S
 C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\payment\CashPayment.java
 C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\payment\PaymentStrategy.java
 C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\payment\WalletPayment.java
+C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\printing\LegacyPrinterAdapter.java
+C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\printing\Printer.java
 C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\com\cafepos\smells\OrderManagerGod.java
-C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\demo\Week8Demo.java
+C:\Users\csbro\OneDrive - University of Limerick\Year 4\Theory and Practice of Software Design\Cafe-POS-Delivery-Project\src\main\java\vendor\legacy\LegacyThermalPrinter.java

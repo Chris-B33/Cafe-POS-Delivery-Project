@@ -30,7 +30,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.1.0</version>
                 <configuration>
-                    <mainClass>demo.Week8Demo</mainClass>
+                    <mainClass>com.cafepos.demo.Week8Demo_Adapter</mainClass>
                 </configuration>
             </plugin>
         </plugins>

@@ -1,4 +1,4 @@
-package demo;
+package com.cafepos.demo;
 
 import java.util.Scanner;
 
