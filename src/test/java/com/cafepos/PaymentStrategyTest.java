@@ -1,10 +1,19 @@
-package org.yourcompany.yourproject;
+package com.cafepos;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
+
+import com.cafepos.catalog.SimpleProduct;
+import com.cafepos.common.Money;
+import com.cafepos.order.LineItem;
+import com.cafepos.order.Order;
+import com.cafepos.payment.CardPayment;
+import com.cafepos.payment.CashPayment;
+import com.cafepos.payment.PaymentStrategy;
+import com.cafepos.payment.WalletPayment;
 
 public class PaymentStrategyTest {
 

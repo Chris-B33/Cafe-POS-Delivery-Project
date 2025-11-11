@@ -6,7 +6,9 @@ public final class AddItemCommand implements Command {
     private final int qty;
 
     public AddItemCommand(OrderService service, String recipe, int qty) {
-        this.service = service; this.recipe = recipe; this.qty = qty;
+        this.service = service; 
+        this.recipe = recipe; 
+        this.qty = qty;
     }
 
     @Override 
